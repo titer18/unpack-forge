@@ -1,0 +1,18 @@
+[workspace]
+members = [
+  "crates/unpack-core",
+  "crates/unpack-cli",
+  "app/src-tauri",
+]
+resolver = "2"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+repository = "https://github.com/titer18/unpack-forge"
+
+[workspace.dependencies]
+anyhow = "1"
+libc = "0.2"
+unpack-core = { path = "crates/unpack-core" }

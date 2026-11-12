@@ -1,0 +1,13 @@
+[package]
+name = "unpack-cli"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "unpack"
+path = "src/main.rs"
+
+[dependencies]
+anyhow.workspace = true
+unpack-core.workspace = true
