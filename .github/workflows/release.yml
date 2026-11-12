@@ -48,13 +48,13 @@ jobs:
         run: cargo build -p unpack-cli --release
 
       - name: Ad-hoc sign app
-        working-directory: app/src-tauri/target/release/bundle/macos
+        working-directory: target/release/bundle/macos
         run: |
           codesign --force --deep --sign - "Unpack Forge.app"
           codesign --verify --deep --strict "Unpack Forge.app"
 
       - name: Package app
-        working-directory: app/src-tauri/target/release/bundle/macos
+        working-directory: target/release/bundle/macos
         run: ditto -c -k --keepParent "Unpack Forge.app" "Unpack-Forge-macos-arm64.zip"
 
       - name: Package CLI
@@ -71,5 +71,5 @@ jobs:
         with:
           generate_release_notes: true
           files: |
-            app/src-tauri/target/release/bundle/macos/Unpack-Forge-macos-arm64.zip
+            target/release/bundle/macos/Unpack-Forge-macos-arm64.zip
             dist/unpack-cli-macos-arm64.zip
